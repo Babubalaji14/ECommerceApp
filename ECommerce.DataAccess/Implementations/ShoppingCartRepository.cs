@@ -42,18 +42,7 @@ namespace ECommerceApp.DataAccess.Implementations
 
         public async Task UpdateSellersAsync(int ProductId, ShoppingCart shoppingCart)
         {
-            var shoppingCarts = new ShoppingCart()
-            {
-                ProductId = shoppingCart.ProductId,
-                ProductDescription= shoppingCart.ProductDescription,
-                Price = shoppingCart.Price,
-                Quantity = shoppingCart.Quantity,
-                Total = shoppingCart.Total,
-                Notes = shoppingCart.Notes,
-                UpdatedDate = shoppingCart.UpdatedDate
-            };
-
-            _context.ShoppingCarts.Update(shoppingCarts);
+            _context.ShoppingCarts.Update(shoppingCart);
             await _context.SaveChangesAsync();
         }
     }
