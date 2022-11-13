@@ -41,19 +41,7 @@ namespace ECommerceApp.DataAccess.Implementations
 
         public async Task UpdateProductAsync(int ProductId, Products products)
         {
-            var product = new Products()
-            {
-                ProductId = products.ProductId,
-                ProductName = products.ProductName,
-                Rating = products.Rating,
-                Category = products.Category,
-                AddedDate = products.AddedDate,
-                Price = products.Price,
-                Quantity = products.Quantity,
-                UpdatedDate = products.UpdatedDate
-            };
-
-            _context.Products.Update(product);
+            _context.Products.Update(products);
             await _context.SaveChangesAsync();
         }
 
