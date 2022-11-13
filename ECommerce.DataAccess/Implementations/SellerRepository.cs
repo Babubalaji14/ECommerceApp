@@ -34,18 +34,7 @@ namespace ECommerceApp.DataAccess.Implementations
 
         public async Task UpdateSellersAsync(int SellerId, Sellers seller)
         {
-            var sellers = new Sellers()
-            {
-                SellerId = seller.SellerId,
-                SellerName = seller.SellerName,
-                Products = seller.Products,
-                WalletBalance = seller.WalletBalance,
-                Revenue = seller.Revenue,
-                Rating = seller.Rating,
-                UpdatedDate = seller.UpdatedDate
-            };
-
-            _context.Sellers.Update(sellers);
+            _context.Sellers.Update(seller);
             await _context.SaveChangesAsync();
         }
 
