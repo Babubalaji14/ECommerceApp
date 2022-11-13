@@ -42,19 +42,7 @@ namespace ECommerceApp.DataAccess.Implementations
 
         public async Task UpdateOrdersAsync(int OrderId, Orders orders)
         {
-            var order = new Orders()
-            {
-                OrderId = orders.OrderId,
-                BillingName = orders.BillingName,
-                Date = orders.Date,
-                PaymentStatus = orders.PaymentStatus,
-                Total = orders.Total,
-                PaymentMethod = orders.PaymentMethod,
-                OrderStatus = orders.OrderStatus,
-                UpdatedDate = orders.UpdatedDate
-            };
-
-            _context.Orders.Update(order);
+            _context.Orders.Update(orders);
             await _context.SaveChangesAsync();
         }
 
