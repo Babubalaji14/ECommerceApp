@@ -42,19 +42,7 @@ namespace ECommerceApp.DataAccess.Implementations
 
         public async Task UpdateCustomersAsync(int CustomerId, Customers customers)
         {
-            var customer = new Customers()
-            {
-                CustomerId = customers.CustomerId,
-                CustomerName = customers.CustomerName,
-                PhoneNumber = customers.PhoneNumber,
-                Balance = customers.Balance,
-                Orders = customers.Orders,
-                LastOrder = customers.LastOrder,
-                Status = customers.Status,
-                UpdatedDate = customers.UpdatedDate
-            };
-
-            _context.Customers.Update(customer);
+            _context.Customers.Update(customers);
             await _context.SaveChangesAsync();
         }
 
