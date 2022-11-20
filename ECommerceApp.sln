@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApp", "ECommerceApp\ECommerceApp.csproj", "{B4623D0D-DD16-4AA4-8FF5-B1EB49B43CE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceApp", "ECommerceApp\ECommerceApp.csproj", "{B4623D0D-DD16-4AA4-8FF5-B1EB49B43CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApp.DataAccess", "ECommerce.DataAccess\ECommerceApp.DataAccess.csproj", "{EDD6CC04-2B31-4360-9C21-88369F90CAFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceApp.DataAccess", "ECommerce.DataAccess\ECommerceApp.DataAccess.csproj", "{EDD6CC04-2B31-4360-9C21-88369F90CAFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApp.Models", "ECommerceApp.Models\ECommerceApp.Models.csproj", "{07508070-427D-4A8E-890E-F6221E88D067}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceApp.Models", "ECommerceApp.Models\ECommerceApp.Models.csproj", "{07508070-427D-4A8E-890E-F6221E88D067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApp-Test", "ECommerceApp-Test\ECommerceApp-Test.csproj", "{BDD70C7D-C021-4986-BCF6-83FC6A852BF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{07508070-427D-4A8E-890E-F6221E88D067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07508070-427D-4A8E-890E-F6221E88D067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07508070-427D-4A8E-890E-F6221E88D067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDD70C7D-C021-4986-BCF6-83FC6A852BF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD70C7D-C021-4986-BCF6-83FC6A852BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD70C7D-C021-4986-BCF6-83FC6A852BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD70C7D-C021-4986-BCF6-83FC6A852BF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
