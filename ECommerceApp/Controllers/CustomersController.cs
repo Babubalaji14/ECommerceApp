@@ -64,8 +64,14 @@ namespace ECommerceApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer([FromRoute] int id)
         {
+            var existingItem = await _customerRepository.GetCustomersByIdAsync(id);
+
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
             await _customerRepository.DeleteCustomersAsync(id);
-            return Ok();
+            return NoContent();
         }
     }
 }

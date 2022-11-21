@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ECommerceApp_Test
 {
-    public class CustomersControllerTest 
+    public class CustomersControllerTest
     {
         private readonly CustomersController _controller;
         private readonly ICustomerRepository _customerRepository;
@@ -145,6 +145,28 @@ namespace ECommerceApp_Test
             // Assert
             Assert.IsType<Customers>(item);
             Assert.Equal("Matheen", item.CustomerName);
+        }
+
+        [Fact]
+        public void Remove_ReturnsNoContentResult()
+        {
+
+            // Act
+            var noContentResponse = _controller.DeleteCustomer(2);
+
+            // Assert
+            Assert.IsType<NoContentResult>(noContentResponse.Result);
+        }
+
+        [Fact]
+        public void Remove_EmployeeById()
+        {
+
+            // Act
+            var okResponse = _controller.DeleteCustomer(1);
+
+            // Assert
+            Assert.Equal(1, _controller.GetAllCustomers().Id);
         }
     }
 }

@@ -42,7 +42,9 @@ namespace ECommerceApp_Test
 
         public Task DeleteCustomersAsync(int id)
         {
-            throw new NotImplementedException();
+            var employee = new Customers() { CustomerId = id };
+
+            return Task.Run(() => _customers.Remove(employee));
         }
 
         public Task<Customers> GetCustomersByIdAsync(int customerId)
