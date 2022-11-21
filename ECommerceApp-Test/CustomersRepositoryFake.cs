@@ -34,9 +34,10 @@ namespace ECommerceApp_Test
             return Task.Run(() => _customers);
         }
 
-        public Task<int> CreateCustomers(Customers customers)
+        public Customers CreateCustomers(Customers customers)
         {
-            throw new NotImplementedException();
+            _customers.Add(customers);
+            return customers;
         }
 
         public Task DeleteCustomersAsync(int id)
@@ -44,12 +45,12 @@ namespace ECommerceApp_Test
             throw new NotImplementedException();
         }
 
-        public Task<Customers> GetCustomersByIdAsync(int CustomerId)
+        public Task<Customers> GetCustomersByIdAsync(int customerId)
         {
-            throw new NotImplementedException();
+            return Task.Run(() => _customers.Where(x => x.CustomerId == customerId).FirstOrDefault());
         }
 
-        public Task UpdateCustomersAsync(int CustomerId, Customers customers)
+        public Task UpdateCustomersAsync(int customerId, Customers customers)
         {
             throw new NotImplementedException();
         }

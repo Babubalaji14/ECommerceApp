@@ -30,7 +30,7 @@ namespace ECommerceApp_Test
         }
 
         [Fact]
-        public void GetAllEmployee_WhenCalled_ReturnsAllEmployess()
+        public void GetAllCustomers_WhenCalled_ReturnsAllCustomers()
         {
             // Act
             var okResult = _controller.GetAllCustomers();
@@ -43,6 +43,108 @@ namespace ECommerceApp_Test
 
             var listEmployee = list.Value as List<Customers>;
             Assert.Equal(2, listEmployee.Count);
+        }
+
+        [Fact]
+        public void GetById_ReturnsOkResult()
+        {
+            //Arrange  
+            var postId = 2;
+
+            //Act  
+            var data = _controller.GetCustomerById(postId);
+
+            //Assert  
+            Assert.IsType<OkObjectResult>(data.Result);
+
+
+        }
+
+        [Fact]
+        public void GetById_ReturnsRightItem()
+        {
+
+            // Act
+            var okResult = _controller.GetCustomerById(2);
+
+            // Assert
+            var item = okResult.Result as OkObjectResult;
+            Assert.IsType<Customers>(item.Value);
+
+            var bookitem = item.Value as Customers;
+            Assert.Equal(2, bookitem.CustomerId);
+        }
+
+        [Fact]
+        public void CreateCustomer_InvalidObjectPassed_ReturnsBadRequest()
+        {
+            // Arrange
+            Customers MissingItem = new()
+            {
+                CustomerId = 3,
+                CustomerName = "Matheen",
+                PhoneNumber = "7993177045",
+                Balance = 4254.65,
+                Orders = 41,
+                LastOrder = DateTime.Now,
+                Status = "Active",
+                CreatedDate = DateTime.Now
+            };
+            _controller.ModelState.AddModelError("CreatedDate", "Required");
+
+            // Act
+            var badResponse = _controller.AddCustomersAsync(MissingItem);
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(badResponse);
+        }
+
+        [Fact]
+        public void AddEmployee_ValidObjectPassed_ReturnsCreatedResponse()
+        {
+            // Arrange
+            Customers testItem = new()
+            {
+                CustomerId = 3,
+                CustomerName = "Matheen",
+                PhoneNumber = "7993177045",
+                Balance = 4254.65,
+                Orders = 41,
+                LastOrder = DateTime.Now,
+                Status = "Active",
+                CreatedDate = DateTime.Now
+            };
+
+            // Act
+            var createdResponse = _controller.AddCustomersAsync(testItem);
+
+            // Assert
+            Assert.IsType<CreatedAtActionResult>(createdResponse);
+        }
+
+        [Fact]
+        public void AddEmployee_ValidObjectPassed_ReturnedResponseHasCreatedItem()
+        {
+            // Arrange
+            var testItem = new Customers()
+            {
+                CustomerId = 3,
+                CustomerName = "Matheen",
+                PhoneNumber = "7993177045",
+                Balance = 4254.65,
+                Orders = 41,
+                LastOrder = DateTime.Now,
+                Status = "Active",
+                CreatedDate = DateTime.Now
+            };
+
+            // Act
+            var createdResponse = _controller.AddCustomersAsync(testItem) as CreatedAtActionResult;
+            var item = createdResponse.Value as Customers;
+
+            // Assert
+            Assert.IsType<Customers>(item);
+            Assert.Equal("Matheen", item.CustomerName);
         }
     }
 }

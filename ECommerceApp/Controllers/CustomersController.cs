@@ -22,12 +22,16 @@ namespace ECommerceApp.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> AddCustomersAsync([FromBody] Customers customers)
+        public  IActionResult AddCustomersAsync([FromBody] Customers customers)
         {
             customers.CreatedDate = DateTime.Now;
             customers.LastOrder = DateTime.Now;
-            await _customerRepository.CreateCustomers(customers);
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var item = _customerRepository.CreateCustomers(customers);
+            return CreatedAtAction("Get", new { id = item.CustomerId }, item);
         }
 
         [HttpGet("")]

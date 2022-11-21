@@ -19,11 +19,11 @@ namespace ECommerceApp.DataAccess.Implementations
             _context = context;
         }
 
-        public async Task<int> CreateCustomers(Customers customers) 
+        public Customers CreateCustomers(Customers customers) 
         {
-            _context.Customers.Add(customers);
-            await _context.SaveChangesAsync();
-            return customers.CustomerId;
+           var result = _context.Customers.Add(customers);
+             _context.SaveChanges();
+            return result.Entity ;
 
         }
 

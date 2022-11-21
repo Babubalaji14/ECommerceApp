@@ -9,7 +9,7 @@ namespace ECommerceApp.DataAccess.Interfaces
 {
     public interface ICustomerRepository 
     {
-        Task<int> CreateCustomers(Customers customers);
+        Customers CreateCustomers(Customers customers);
         Task<List<Customers>> GetAllCustomersAsync();
         Task<Customers> GetCustomersByIdAsync(int CustomerId);
         Task UpdateCustomersAsync(int CustomerId, Customers customers);
