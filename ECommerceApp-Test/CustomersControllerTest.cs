@@ -42,7 +42,7 @@ namespace ECommerceApp_Test
             Assert.IsType<List<Customers>>(list.Value);
 
             var listEmployee = list.Value as List<Customers>;
-            Assert.Equal(2, listEmployee.Count);
+            Assert.Equal(3, listEmployee.Count);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace ECommerceApp_Test
             // Arrange
             Customers MissingItem = new()
             {
-                CustomerId = 3,
+                CustomerId = 4,
                 CustomerName = "Matheen",
                 PhoneNumber = "7993177045",
                 Balance = 4254.65,
@@ -105,7 +105,7 @@ namespace ECommerceApp_Test
             // Arrange
             Customers testItem = new()
             {
-                CustomerId = 3,
+                CustomerId = 4,
                 CustomerName = "Matheen",
                 PhoneNumber = "7993177045",
                 Balance = 4254.65,
@@ -128,7 +128,7 @@ namespace ECommerceApp_Test
             // Arrange
             var testItem = new Customers()
             {
-                CustomerId = 3,
+                CustomerId = 4,
                 CustomerName = "Matheen",
                 PhoneNumber = "7993177045",
                 Balance = 4254.65,
@@ -152,14 +152,14 @@ namespace ECommerceApp_Test
         {
 
             // Act
-            var noContentResponse = _controller.DeleteCustomer(2);
+            var noContentResponse = _controller.DeleteCustomer(1);
 
             // Assert
             Assert.IsType<NoContentResult>(noContentResponse.Result);
         }
 
         [Fact]
-        public void Remove_EmployeeById()
+        public void Remove_CustomerById() 
         {
 
             // Act

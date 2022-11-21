@@ -24,7 +24,10 @@ namespace ECommerceApp_Test
                 new Customers() { CustomerId = 2, CustomerName = "Jagga" , PhoneNumber = "7659801069" ,
                     Balance = 53264.43, Orders = 53, LastOrder = DateTime.Now, Status = "Active",
                     CreatedDate = DateTime.Now, UpdatedDate = DateTime.Now
-
+                },
+                new Customers() { CustomerId = 3, CustomerName = "Charan" , PhoneNumber = "9398226552" ,
+                    Balance = 32454.20, Orders = 34, LastOrder = DateTime.Now, Status = "Active",
+                    CreatedDate = DateTime.Now, UpdatedDate = DateTime.Now
                 },
             };
         }
