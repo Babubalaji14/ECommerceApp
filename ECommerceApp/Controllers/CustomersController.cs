@@ -40,8 +40,12 @@ namespace ECommerceApp.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCustomerById([FromRoute] int id)
         {
-            var product = await _customerRepository.GetCustomersByIdAsync(id);
-            return Ok(product);
+            var customers = await _customerRepository.GetCustomersByIdAsync(id);
+            if (customers == null)
+            {
+                return NotFound();
+            }
+            return Ok(customers);
         }
 
         [HttpPut("{id}")]
